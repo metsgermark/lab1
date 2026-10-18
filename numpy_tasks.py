@@ -46,6 +46,16 @@ def matrix_statistics(data: RandomMatrixInput) -> MatrixStatistics:
     column_means = np.mean(matrix, axis=0)
     row_variances = np.var(matrix, axis=1)
     column_variances = np.var(matrix, axis=0)
+
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(12, 5))
+    plt.subplot(1, 2, 1)
+    plt.hist(row_means, bins=10)
+    plt.title('Гистограмма средних по строкам')
+    plt.subplot(1, 2, 2)
+    plt.hist(column_means, bins=10)
+    plt.title('Гистограмма средних по столбцам')
+    plt.show()
     
     return MatrixStatistics(
         matrix=matrix,
@@ -184,6 +194,7 @@ print(f"row_variances: {result.row_variances}") # row_variances: [1.00799409e-01
 print(f"column_variances: {result.column_variances}") # column_variances: [0.14828953 0.65074723]
 
 '''
+
 # проверка функции chess
 
 '''
